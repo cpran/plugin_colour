@@ -1,0 +1,51 @@
+# Procedure to convert colours in in RGB format (integers in the
+# range 0 - 255) to colors in the HSV format, with hue values in the
+# 0 .. 360 range and saturation and intensity values in the 0 .. 100
+# range.
+#
+# The three components are stored in the local variables ".h", ".s"
+# and ".v" for the hue, saturation and intensity values respectively.
+#
+# This script is part of the colour CPrAN plugin for Praat.
+# The latest version is available through CPrAN or at
+# <http://cpran.net/plugins/colour>
+#
+# The colour plugin is free software: you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either
+# version 3 of the License, or (at your option) any later version.
+#
+# The colour plugin is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with colour. If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2015, 2016 José Joaquín Atria & Mauricio Figueroa
+
+procedure rgb2hsv: .r, .g, .b
+   .rprime = .r / 255
+   .gprime = .g / 255
+   .bprime = .b / 255
+
+   .max = max(.rprime, .gprime, .bprime)
+   .min = min(.rprime, .gprime, .bprime)
+
+   .chroma = .max - .min
+
+   if .max = .rprime
+      .h = number(fixed$(60 * (((.gprime - .bprime) / .chroma) mod 6), 3))
+   elif .max = .gprime
+      .h = number(fixed$(60 * ((.bprime - .rprime) / .chroma + 2), 3))
+   elif .max = .bprime
+      .h = number(fixed$(60 * ((.rprime - .gprime) / .chroma + 4), 3))
+   else
+      appendInfoLine: "W: Unexpected value at rgb2hsv: max = ", .max
+      .h = 0
+   endif
+
+   .s = number(fixed$(if .chroma = 0 then 0 else .chroma / .max fi, 3))
+   .v = number(fixed$(.max, 3))
+endproc

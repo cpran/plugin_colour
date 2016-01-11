@@ -1,0 +1,28 @@
+---
+Plugin: colour
+Homepage: http://cpran/plugins/colour
+Version: 0.0.1
+Maintainer: Mauricio Figueroa <mauriciofigueroac@gmail.com>
+Depends:
+  praat: 5.0.0+
+Recommends:
+License: GPL3
+Readme: readme.md
+Description:
+  Short: convert standard colour formats to Praat's
+  Long: >
+    Praat uses a rather unorthodox approach to define colours: red, green and
+    blue components have to be provided in a scale from 0 to 1, in which 0
+    equals to absense of a component.
+
+    This plugin offers conversions from standard colour formatting to Praat's
+    idiosyncratic format. In particular, this plugin parses hexadecimal, RGB
+    and HSV formats. To do so, it uses a series of procedures to convert
+    hexadecimal and HSV formats into RGB, and then from RGB to Praat's format.
+
+    When the plugin is installed, three new commands become available in the
+    Picture window, under the Pen menu. These commands can be used manually or
+    they can be intergrated directly into scripts by the means of runScript.
+
+    Once any of these scripts has been executed, the colour defined by the
+    user can be used in any of the contexts where the command Colour... works.

@@ -1,0 +1,63 @@
+# Procedure to convert hexadecimal colours (with or without initial
+# hash) into RGB colour codes (integers in the range 0 - 255). Input
+# is the number as a string (e.g. "#9bcfab").
+#
+# The three components are stored in the local variables ".r", ".g"
+# and ".b" for the red, green and blue respectively. These variables
+# can be used outside the procedure via: "hex2rgb.r".
+#
+# This script is part of the colour CPrAN plugin for Praat.
+# The latest version is available through CPrAN or at
+# <http://cpran.net/plugins/colour>
+#
+# The colour plugin is free software: you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either
+# version 3 of the License, or (at your option) any later version.
+#
+# The colour plugin is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with colour. If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
+
+include ../procedures/base_conversions.proc
+
+procedure hex2rgb: .hex$
+  # Removing hash symbol, convert to lowercase, look for illegal characters and
+  # query length of hexadecimal.
+  .has_illegal = index_regex(.hex$, "[^0-9abcdefABCDEF#]")
+  .length      = length(.hex$)
+
+  # If problem is found from previous tests, terminate script.
+  if .has_illegal
+    .bad_char$ = mid$ (.hex$, .has_illegal, 1)
+    exitScript: "Your hexadecimal number (" + .hex$ + ") " + 
+      ... "contains an illegal character (" + .bad_char$ + ") " +
+      ... "in position: " + string$(.has_illegal) + "." + newline$
+  elsif .length > 7
+    exitScript: "Your hexadecimal number (" + .hex$ + ") " + 
+      ... "has " + string$(.length) + " characters instead of the maximum 7" +
+      ... " (including initial hash)." + newline$
+  endif
+
+  # Removing initial hash, if present.
+  .hex$ = if index_regex(.hex$, "[#]") then replace$(.hex$, "#", "", 1) else .hex$ fi
+
+  # Parsing hexadecimal pairs
+  for .ch from 0 to 2
+    .i = 2 * .ch + 1
+    .current$ = mid$(.hex$, .i, 2)
+    @parseHex(.current$)
+    .rgb[.ch+1] = n2dec.n
+  endfor
+
+  # Store color components
+  .r = .rgb[1]
+  .g = .rgb[2]
+  .b = .rgb[3]
+endproc

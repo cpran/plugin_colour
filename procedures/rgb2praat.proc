@@ -1,0 +1,48 @@
+# Procedure to convert colours in RGB format (integers in the range
+# 0 - 255) to the colour format expected by Praat. Input is the three
+# RGB components, in the order suggested by the acronym (e.g. red,
+# green, blue).
+#
+# The colour in the format required by Praat can be accessed with a
+# reference to ".color$", which can be used in any(?) of the commands
+# that use colours. For example, to change the colour of the pen in a
+# Praat draw, you can use:
+#
+#     Colour: rgb2praat.color$
+#
+# This script is part of the colour CPrAN plugin for Praat.
+# The latest version is available through CPrAN or at
+# <http://cpran.net/plugins/colour>
+#
+# The colour plugin is free software: you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either
+# version 3 of the License, or (at your option) any later version.
+#
+# The colour plugin is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with colour. If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
+
+procedure rgb2praat: .r, .g, .b
+
+  # Testing number format.
+  if .r < 0 or .r > 255 or .g < 0 or .g > 255 or .b < 0 or .b > 255
+    exitScript: "One of the values provided to rgb2praat (" +
+      ... "red: "   + string$(.r) + ", " +
+      ... "green: " + string$(.g) + ", " +
+      ... "blue: "  + string$(.b) + " " +
+      ... "is either smaller than 0 or larger than 255." + newline$
+  endif
+
+  # Convert original RGB to Praat's RGB colour format.
+  .r = .r / 255
+  .g = .g / 255
+  .b = .b / 255
+  .color$ = "{" + string$(.r) + "," + string$(.g) + "," + string$(.b) + "}"
+endproc

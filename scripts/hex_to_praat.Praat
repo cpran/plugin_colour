@@ -23,7 +23,7 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/hex2praat.proc
+include ../../plugin_colour/procedures/hex2praat.proc
 
 form Colour (hex)
   word Hexadecimal:

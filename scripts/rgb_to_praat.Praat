@@ -22,7 +22,7 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/rgb2praat.proc
+include ../../plugin_colour/procedures/rgb2praat.proc
 
 form Colour (rgb)
   comment Enter components as numbers from 1 to 255.

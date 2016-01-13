@@ -30,8 +30,8 @@
 #
 # Copyright 2015, 2016 José Joaquín Atria & Mauricio Figueroa
 
-include ../procedures/hsv2rgb.proc
-include ../procedures/rgb2praat.proc
+include ../../plugin_colour/procedures/hsv2rgb.proc
+include ../../plugin_colour/procedures/rgb2praat.proc
 
 procedure hsv2praat: .h, .s, .v
   @hsv2rgb(.h, .s, .v)

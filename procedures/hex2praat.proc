@@ -28,8 +28,8 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/hex2rgb.proc
-include ../procedures/rgb2praat.proc
+include ../..plugin_colour/procedures/hex2rgb.proc
+include ../..plugin_colour/procedures/rgb2praat.proc
 
 procedure hex2praat: .hex$
   @hex2rgb(.hex$)

@@ -52,8 +52,8 @@ procedure hex2rgb: .hex$
   for .ch from 0 to 2
     .i = 2 * .ch + 1
     .current$ = mid$(.hex$, .i, 2)
-    @parseHex(.current$)
-    .rgb[.ch+1] = n2dec.n
+    @hex2dec(.current$)
+    .rgb[.ch+1] = hex2dec.n
   endfor
 
   # Store color components

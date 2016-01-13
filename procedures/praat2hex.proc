@@ -1,0 +1,37 @@
+# Procedure to convert colours in HSV format, with hue values in the
+# 0 .. 360 range and saturation and intensity values in the 0 .. 100
+# range, to RGB colors with components in the 0 .. 255 range.
+#
+# The three components are stored in the local variables ".r", ".g" and
+# ".b" for the red, green and blue respectively.
+#
+# This script is part of the colour CPrAN plugin for Praat.
+# The latest version is available through CPrAN or at
+# <http://cpran.net/plugins/colour>
+#
+# The colour plugin is free software: you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either
+# version 3 of the License, or (at your option) any later version.
+#
+# The colour plugin is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with colour. If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2015, 2016 José Joaquín Atria & Mauricio Figueroa
+
+procedure praat2hex: .color$
+  @praat2rgb: .color$
+
+  .r = praat2rgb.r
+  .g = praat2rgb.g
+  .b = praat2rgb.b
+
+  @rgb2hex: .r, .g, .b
+  n$ = rgb2hex.n$
+
+endproc

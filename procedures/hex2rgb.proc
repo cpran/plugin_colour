@@ -36,11 +36,11 @@ procedure hex2rgb: .hex$
   # If problem is found from previous tests, terminate script.
   if .has_illegal
     .bad_char$ = mid$ (.hex$, .has_illegal, 1)
-    exitScript: "Your hexadecimal number (" + .hex$ + ") " + 
+    exitScript: "Your hexadecimal number (" + .hex$ + ") " +
       ... "contains an illegal character (" + .bad_char$ + ") " +
       ... "in position: " + string$(.has_illegal) + "." + newline$
   elsif .length > 7
-    exitScript: "Your hexadecimal number (" + .hex$ + ") " + 
+    exitScript: "Your hexadecimal number (" + .hex$ + ") " +
       ... "has " + string$(.length) + " characters instead of the maximum 7" +
       ... " (including initial hash)." + newline$
   endif

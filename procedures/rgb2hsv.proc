@@ -35,17 +35,19 @@ procedure rgb2hsv: .r, .g, .b
 
    .chroma = .max - .min
 
-   if .max = .rprime
+   if .chroma == 0
+     .h = 0
+   elif .max == .rprime
       .h = number(fixed$(60 * (((.gprime - .bprime) / .chroma) mod 6), 3))
-   elif .max = .gprime
+   elif .max == .gprime
       .h = number(fixed$(60 * ((.bprime - .rprime) / .chroma + 2), 3))
-   elif .max = .bprime
+   elif .max == .bprime
       .h = number(fixed$(60 * ((.rprime - .gprime) / .chroma + 4), 3))
    else
       appendInfoLine: "W: Unexpected value at rgb2hsv: max = ", .max
-      .h = 0
+     .h = 0
    endif
 
-   .s = number(fixed$(if .chroma = 0 then 0 else .chroma / .max fi, 3))
-   .v = number(fixed$(.max, 3))
+   .s = number(fixed$(if .chroma == 0 then 0 else .chroma / .max fi, 3)) * 100
+   .v = number(fixed$(.max, 3)) * 100
 endproc

@@ -25,7 +25,7 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/base_conversions.proc
+include ../../plugin_utils/procedures/base_conversions.proc
 
 procedure hex2rgb: .hex$
   # Removing hash symbol, convert to lowercase, look for illegal characters and

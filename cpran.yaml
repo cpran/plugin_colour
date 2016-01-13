@@ -5,6 +5,8 @@ Version: 0.0.2
 Maintainer: Mauricio Figueroa <mauriciofigueroac@gmail.com>
 Depends:
   praat: 5.0.0+
+  Plugins:
+    utils: 0.0.6+
 Recommends:
 License: GPL3
 Readme: readme.md

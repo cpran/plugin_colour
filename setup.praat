@@ -20,7 +20,28 @@
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
 # Adding commands to Picture window.
-nocheck Add menu command: "Picture", "Pen", "-",                     "Speckle size...", 1, ""
-nocheck Add menu command: "Picture", "Pen", "Colour hexadecimal...", "Speckle size...", 1, "scripts/hex_to_praat.Praat"
-nocheck Add menu command: "Picture", "Pen", "Colour RGB...",         "Speckle size...", 1, "scripts/rgb_to_praat.Praat"
-nocheck Add menu command: "Picture", "Pen", "Colour HSV...",         "Speckle size...", 1, "scripts/hsv_to_praat.Praat"
+nocheck Add menu command: "Picture", "Pen",   "-- Other colour formats --",     "", 1, ""
+nocheck Add menu command: "Picture", "Pen",   "Colour (hex)...",                  "Colour...", 1, "scripts/hex_to_praat.Praat"
+nocheck Add menu command: "Picture", "Pen",   "Colour (rgb)...",                  "Colour...", 1, "scripts/rgb_to_praat.Praat"
+nocheck Add menu command: "Picture", "Pen",   "Colour (hsv)...",                  "Colour...", 1, "scripts/hsv_to_praat.Praat"
+
+nocheck Add menu command: "Picture", "World", "-- Hexadecimal --",              "", 1, ""
+nocheck Add menu command: "Picture", "World", "Paint rectangle (hex)...",         "", 1, "scripts/paint_rectangle_hex.Praat"
+nocheck Add menu command: "Picture", "World", "Paint rounded rectangle (hex)...", "", 1, "scripts/paint_rounded_rectangle_hex.Praat"
+nocheck Add menu command: "Picture", "World", "Paint ellipse (hex)...",           "", 1, "scripts/paint_ellipse_hex.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (hex)...",            "", 1, "scripts/paint_circle_hex.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (mm) (hex)...",       "", 1, "scripts/paint_circle_mm_hex.Praat"
+
+nocheck Add menu command: "Picture", "World", "-- RGB --",                      "", 1, ""
+nocheck Add menu command: "Picture", "World", "Paint rectangle (rgb)...",         "", 1, "scripts/paint_rectangle_rgb.Praat"
+nocheck Add menu command: "Picture", "World", "Paint rounded rectangle (rgb)...", "", 1, "scripts/paint_rounded_rectangle_rgb.Praat"
+nocheck Add menu command: "Picture", "World", "Paint ellipse (rgb)...",           "", 1, "scripts/paint_ellipse_rgb.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (rgb)...",            "", 1, "scripts/paint_circle_rgb.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (mm) (rgb)...",       "", 1, "scripts/paint_circle_mm_rgb.Praat"
+
+nocheck Add menu command: "Picture", "World", "-- HSV --",                      "", 1, ""
+nocheck Add menu command: "Picture", "World", "Paint rectangle (hsv)...",         "", 1, "scripts/paint_rectangle_hsv.Praat"
+nocheck Add menu command: "Picture", "World", "Paint rounded rectangle (hsv)...", "", 1, "scripts/paint_rounded_rectangle_hsv.Praat"
+nocheck Add menu command: "Picture", "World", "Paint ellipse (hsv)...",           "", 1, "scripts/paint_ellipse_hsv.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (hsv)...",            "", 1, "scripts/paint_circle_hsv.Praat"
+nocheck Add menu command: "Picture", "World", "Paint circle (mm) (hsv)...",       "", 1, "scripts/paint_circle_mm_hsv.Praat"

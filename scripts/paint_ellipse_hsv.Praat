@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint ellipse (hsv)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint ellipse..., but where the colour argument
+# is provided in an HSV format. Hue has to be entered as an integer from 1
+# to 360. Saturation and value have to be entered as integers from 1 to 100.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -22,14 +23,19 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/rgb2praat.proc
+include ../procedures/hsv2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
-  integer Red:
-  integer Green:
-  integer Blue:
+form Paint ellipse (hsv)
+  comment Enter hue as a number from 1 to 360.
+  integer Hue:
+  comment Enter saturation and value as percentages from 1 to 100.
+  integer Saturation:
+  integer Value:
+  real From_x: 0.0
+  real To_x: 1.0
+  real From_y: 0.0
+  real To_y: 1.0
 endform
 
-@rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+@hsv2praat: hue, saturation, value
+Paint ellipse: hsv2praat.color$, from_x, to_x, from_y, to_y

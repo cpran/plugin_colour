@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint rectangle (hex)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint rectangle..., but where the colour argument
+# is provided in an hexadecimal format. The hexadecimal can be entered
+# with or without initial hash, in lower or uppercase.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -22,14 +23,15 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/rgb2praat.proc
+include ../procedures/hex2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
-  integer Red:
-  integer Green:
-  integer Blue:
+form Paint rectangle (hex)
+  word Hexadecimal:
+  real From_x: 0.0
+  real To_x: 1.0
+  real From_y: 0.0
+  real To_y: 1.0
 endform
 
-@rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+@hex2praat: hexadecimal$
+Paint rectangle: hex2praat.color$, from_x, to_x, from_y, to_y

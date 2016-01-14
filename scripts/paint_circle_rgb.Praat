@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint circle (rgb)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint circle..., but where the colour argument
+# is provided in an RGB format. The RGB components have to be entered as
+# integer numbers from 1 to 255.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -24,12 +25,15 @@
 
 include ../procedures/rgb2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
+form Paint circle (rgb)
+  comment Enter RGB colour components as numbers from 1 to 255.
   integer Red:
   integer Green:
   integer Blue:
+  real Centre_x: 0
+  real Centre_y: 0
+  real Radius_(along_x): 1.0
 endform
 
 @rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+Paint circle: rgb2praat.color$, centre_x, centre_y, radius

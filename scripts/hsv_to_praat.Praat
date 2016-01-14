@@ -1,4 +1,4 @@
-# HSV to Praat
+# Colour (hsv)
 #
 # Script to set the colour for Praat's Draw window using the HSV format.
 # Hue has to be provided in a scale from 1 to 360, while saturation
@@ -25,7 +25,7 @@
 
 include ../procedures/hsv2praat.proc
 
-form HSV to Praat...
+form Colour (hsv)
   comment Enter hue as a number from 1 to 360.
   integer Hue:
   comment Enter saturation and value as percentages from 1 to 100.

@@ -1,4 +1,4 @@
-# Hexadecimal to Praat
+# Colour (hex)
 #
 # Script to set the colour of Praat's Draw window using the hexadecimal
 # format. The hexadecimal can be provided with or without initial hash,
@@ -25,7 +25,7 @@
 
 include ../procedures/hex2praat.proc
 
-form Hexadecimal to Praat...
+form Colour (hex)
   word Hexadecimal:
 endform
 

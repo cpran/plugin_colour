@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint rounded rectangle (rgb)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint rounded rectangle..., but where the colour
+# argument is provided in an RGB format. The RGB components have to be entered
+# as integer numbers from 1 to 255.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -24,12 +25,17 @@
 
 include ../procedures/rgb2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
+form Paint rounded rectangle (rgb)
+  comment Enter RGB colour components as numbers from 1 to 255.
   integer Red:
   integer Green:
   integer Blue:
+  real From_x: 0.0
+  real To_x: 1.0
+  real From_y: 0.0
+  real To_y: 1.0
+  real Radius_(mm): 3.0
 endform
 
 @rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+Paint rounded rectangle: rgb2praat.color$, from_x, to_x, from_y, to_y, radius

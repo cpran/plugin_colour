@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint circle (hex)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint circle..., but where the colour argument
+# is provided in an hexadecimal format. The hexadecimal can be entered
+# with or without initial hash, in lower or uppercase.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -22,14 +23,14 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/rgb2praat.proc
+include ../procedures/hex2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
-  integer Red:
-  integer Green:
-  integer Blue:
+form Paint circle (hex)
+  word Hexadecimal:
+  real Centre_x: 0
+  real Centre_y: 0
+  real Radius_(along_x): 1.0
 endform
 
-@rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+@hex2praat: hexadecimal$
+Paint circle: hex2praat.color$, centre_x, centre_y, radius

@@ -1,2 +1,5 @@
+- v0.0.2:
+  - Added commands with colour as argument (e.g., "Paint circle (hex)...")
+  - Homogenized formatting and naming
 - v0.0.1:
   - First working version

@@ -1,7 +1,8 @@
-# Colour (rgb)
+# Paint circle (hsv)
 #
-# Script to set the colour for Praat's Draw window using the RGB format.
-# Red, green and blue have to be provided in scales from 1 to 255.
+# Command that emulates Paint circle..., but where the colour argument
+# is provided in an HSV format. Hue has to be entered as an integer from 1
+# to 360. Saturation and value have to be entered as integers from 1 to 100.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -22,14 +23,18 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../procedures/rgb2praat.proc
+include ../procedures/hsv2praat.proc
 
-form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
-  integer Red:
-  integer Green:
-  integer Blue:
+form Paint circle (hsv)
+  comment Enter hue as a number from 1 to 360.
+  integer Hue:
+  comment Enter saturation and value as percentages from 1 to 100.
+  integer Saturation:
+  integer Value:
+  real Centre_x: 0
+  real Centre_y: 0
+  real Radius_(along_x): 1.0
 endform
 
-@rgb2praat: red, green, blue
-Colour: rgb2praat.color$
+@hsv2praat: hue, saturation, value
+Paint circle: hsv2praat.color$, centre_x, centre_y, radius

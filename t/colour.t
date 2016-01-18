@@ -76,7 +76,7 @@ for i to total
 
   @rgb2praat: r, g, b
 
-  @ok:  index_regex(rgb2praat.colour$, "\{[0-9]+,[0-9]+,[0-9]+\}"),
+  @ok:  index_regex(rgb2praat.colour$, "\{[0-9.]+,[0-9.]+,[0-9.]+\}"),
     ... "rgb2praat"
 
   if !ok.value

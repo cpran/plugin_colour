@@ -13,7 +13,7 @@ for n from 0 to max
   saturation = randomInteger(0, 100)
   value      = randomInteger(0, 100)
 
-  appendInfoLine: "# " + string$(max) + "-colour rainbow (" + string$(saturation) + ", " + string$(value) + ")"
+  appendInfoLine: "# " + string$(n) + "-colour rainbow (" + string$(saturation) + ", " + string$(value) + ")"
 
   @rainbow: n, saturation, value
 
@@ -29,8 +29,8 @@ for n from 0 to max
 
       appendInfoLine: "# Colour " + string$(i) + ": "
       appendInfoLine: "#   H: " + string$(praat2hsv.h)
-      appendInfoLine: "#   S: " + string$(praat2hsv.s)
-      appendInfoLine: "#   V: " + string$(praat2hsv.v)
+      appendInfoLine: "#   S: " + string$(praat2hsv.s), " - ", saturation
+      appendInfoLine: "#   V: " + string$(praat2hsv.v), " - ", value
 
       result = 0
     endif

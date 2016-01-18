@@ -25,7 +25,7 @@
 include ../procedures/rgb2praat.proc
 
 form Colour (rgb)
-  comment Enter components as numbers from 1 to 255.
+  comment Enter components as numbers from 0 to 255.
   integer Red:
   integer Green:
   integer Blue:

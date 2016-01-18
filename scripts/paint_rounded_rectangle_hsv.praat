@@ -27,9 +27,9 @@
 include ../procedures/hsv2praat.proc
 
 form Paint rounded rectangle (hsv)
-  comment Enter hue as a number from 1 to 360.
+  comment Enter hue as a number from 0 to 360.
   integer Hue:
-  comment Enter saturation and value as percentages from 1 to 100.
+  comment Enter saturation and value as percentages from 0 to 100.
   integer Saturation:
   integer Value:
   real From_x: 0.0

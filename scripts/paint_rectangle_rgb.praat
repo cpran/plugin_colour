@@ -26,7 +26,7 @@
 include ../procedures/rgb2praat.proc
 
 form Paint rectangle (rgb)
-  comment Enter RGB colour components as numbers from 1 to 255.
+  comment Enter RGB colour components as numbers from 0 to 255.
   integer Red:
   integer Green:
   integer Blue:

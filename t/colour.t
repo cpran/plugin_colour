@@ -1,6 +1,15 @@
 include ../../plugin_testsimple/procedures/test_simple.proc
 
 include ../../plugin_utils/procedures/utils.proc
+
+include ../../plugin_colour/procedures/hex2praat.proc
+include ../../plugin_colour/procedures/hsv2praat.proc
+include ../../plugin_colour/procedures/rgb2praat.proc
+
+include ../../plugin_colour/procedures/praat2hex.proc
+include ../../plugin_colour/procedures/praat2hsv.proc
+include ../../plugin_colour/procedures/praat2rgb.proc
+
 include ../../plugin_colour/procedures/hex2rgb.proc
 include ../../plugin_colour/procedures/rgb2hex.proc
 include ../../plugin_colour/procedures/hex2hsv.proc
@@ -22,12 +31,12 @@ for i to total
   @toLower: tmp$
   hex$ = toLower.return$
 
-  r    = Object_'colours' [i, "r"]
-  g    = Object_'colours' [i, "g"]
-  b    = Object_'colours' [i, "b"]
-  h    = Object_'colours' [i, "h"]
-  s    = Object_'colours' [i, "s"]
-  v    = Object_'colours' [i, "v"]
+  r = Object_'colours'[i, "r"]
+  g = Object_'colours'[i, "g"]
+  b = Object_'colours'[i, "b"]
+  h = Object_'colours'[i, "h"]
+  s = Object_'colours'[i, "s"]
+  v = Object_'colours'[i, "v"]
 
   appendInfoLine: "# ", do$("Get value...", i, "name")
 
@@ -61,6 +70,38 @@ for i to total
     appendInfoLine: "# B: " + string$(b)
     appendInfoLine: "# ---"
     appendInfoLine: "# HEX: " + rgb2hex.n$ + " (" + hex$ + ")"
+  endif
+
+  ## RGB -> PRAAT
+
+  @rgb2praat: r, g, b
+
+  @ok:  index_regex(rgb2praat.colour$, "\{[0-9]+,[0-9]+,[0-9]+\}"),
+    ... "rgb2praat"
+
+  if !ok.value
+    appendInfoLine: "# R: " + string$(r)
+    appendInfoLine: "# G: " + string$(g)
+    appendInfoLine: "# B: " + string$(b)
+    appendInfoLine: "# ---"
+    appendInfoLine: "# Praat: " + rgb2praat.colour$
+  endif
+
+  ## PRAAT -> RGB
+
+  @praat2rgb: rgb2praat.colour$
+
+  @ok:  abs(praat2rgb.r - r) <= threshold and
+    ... abs(praat2rgb.g - g) <= threshold and
+    ... abs(praat2rgb.b - b) <= threshold,
+    ... "praat2rgb"
+
+  if !ok.value
+    appendInfoLine: "# Praat: " + rgb2praat.colour$
+    appendInfoLine: "# ---"
+    appendInfoLine: "# R: " + string$(praat2rgb.r)
+    appendInfoLine: "# G: " + string$(praat2rgb.g)
+    appendInfoLine: "# B: " + string$(praat2rgb.b)
   endif
 
   ## HEX -> HSV

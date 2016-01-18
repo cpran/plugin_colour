@@ -6,7 +6,7 @@ include ../../plugin_colour/procedures/praat2hsv.proc
 @no_plan()
 
 max = 20
-threshold = 3
+threshold = 4
 
 for n from 0 to max
 

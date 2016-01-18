@@ -25,7 +25,7 @@
 #
 # Copyright 2015, 2016 José Joaquín Atria
 
-include ../procedures/hsv2praat.proc
+include ../../plugin_colour/procedures/hsv2praat.proc
 
 procedure rainbow: .n, .s, .v
    for .i to .n

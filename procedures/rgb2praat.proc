@@ -36,7 +36,7 @@ procedure rgb2praat: .r, .g, .b
     exitScript: "One of the values provided to rgb2praat (" +
       ... "red: "   + string$(.r) + ", " +
       ... "green: " + string$(.g) + ", " +
-      ... "blue: "  + string$(.b) + " " +
+      ... "blue: "  + string$(.b) + " "  +
       ... "is either smaller than 0 or larger than 255." + newline$
   endif
 

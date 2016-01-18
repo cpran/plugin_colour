@@ -1,13 +1,9 @@
-# Procedure to convert hexadecimal colours (with or without initial
-# hash) into the colour format expected by Praat. Input is the number
-# as a string (e.g. "#9bcfab").
+# Procedure to convert colours in HSV format, with hue values in the
+# 0 .. 360 range and saturation and intensity values in the 0 .. 100
+# range, to six-digit hexadecimal colors.
 #
-# The colour in the format required by Praat can be accessed with a
-# reference to ".color$", which can be used in any(?) of the commands
-# that use colours. For example, to change the colour of the pen in a
-# Praat draw, one could use:
-#
-#     Colour: hex2praat.color$
+# The three components are stored in the local variables ".r", ".g" and
+# ".b" for the red, green and blue respectively.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -26,16 +22,12 @@
 # You should have received a copy of the GNU General Public License
 # along with colour. If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
+# Copyright 2015, 2016 José Joaquín Atria & Mauricio Figueroa
 
-include ../../plugin_colour/procedures/hex2rgb.proc
-include ../../plugin_colour/procedures/rgb2praat.proc
+procedure hsv2hex: .h, .s, .v
+  @hsv2rgb: .h, .s, .v
 
-procedure hex2praat: .hex$
-  @hex2rgb(.hex$)
-  @rgb2praat(hex2rgb.r, hex2rgb.g, hex2rgb.b)
-  .r = rgb2praat.r
-  .g = rgb2praat.g
-  .b = rgb2praat.b
-  .color$ = rgb2praat.color$
+  @rgb2hex: hsv2rgb.r, hsv2rgb.g, hsv2rgb.b
+
+  .n$ = rgb2hex.n$
 endproc

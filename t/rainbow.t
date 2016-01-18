@@ -6,7 +6,7 @@ include ../../plugin_colour/procedures/praat2hsv.proc
 @no_plan()
 
 max = 20
-threshold = 4
+threshold = 3
 
 for n from 0 to max
 
@@ -35,6 +35,8 @@ for n from 0 to max
       result = 0
     endif
   endfor
+
+  @todo: 1, "HSV -> RGB -> HSV conversion is prone to errors"
   @ok: result, "Rainbow with " + string$(n) + " colours"
 
 endfor

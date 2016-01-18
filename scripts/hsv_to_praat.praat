@@ -23,7 +23,7 @@
 #
 # Copyright 2014, 2015, 2016 Mauricio Figueroa & José Joaquín Atria
 
-include ../../plugin_colour/procedures/hsv2praat.proc
+include ../procedures/hsv2praat.proc
 
 form Colour (hsv)
   comment Enter hue as a number from 1 to 360.

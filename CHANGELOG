@@ -1,5 +1,7 @@
 - v0.0.2:
   - Added commands with colour as argument (e.g., "Paint circle (hex)...")
   - Homogenized formatting and naming
+  - Added procedures for all conversion combinations
+  - Added tests
 - v0.0.1:
   - First working version

@@ -1,9 +1,9 @@
-# Procedure to convert colours in HSV format, with hue values in the
-# 0 .. 360 range and saturation and intensity values in the 0 .. 100
-# range, to RGB colors with components in the 0 .. 255 range.
+# Procedure to convert the colour format used by Praat into
+# six-digit hexadecimal colours.
 #
-# The three components are stored in the local variables ".r", ".g" and
-# ".b" for the red, green and blue respectively.
+# As a side effect, the three RGB components are stored in the
+# local variables ".r", ".g" and ".b" for the red, green and blue
+# respectively.
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at

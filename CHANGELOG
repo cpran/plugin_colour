@@ -3,5 +3,6 @@
   - Homogenized formatting and naming
   - Added procedures for all conversion combinations
   - Added tests
+  - Added CI job
 - v0.0.1:
   - First working version

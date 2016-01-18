@@ -1,10 +1,10 @@
-# Generate a number of evenly spaced colors with a consistent
+# Generate a number of evenly spaced colours with a consistent
 # intensity.
 #
-# The procedure must be called with the number of colors to generate,
+# The procedure must be called with the number of colours to generate,
 # and a saturation and intensity value to be used for all the
-# generated colors. The resulting colors will be accessible, as Praat
-# color strings, in the array rainbow.colors$
+# generated colours. The resulting colours will be accessible, as Praat
+# colour strings, in the array rainbow.colours$
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -31,6 +31,7 @@ procedure rainbow: .n, .s, .v
    for .i to .n
       .h = 360 / .n * .i
       @hsv2praat(.h, .s, .v)
-      .colors$[.i] = hsv2praat.color$
+      .colours$[.i] = hsv2praat.colour$
+      .colors$[.i]  = .colours$[.i]
    endfor
 endproc

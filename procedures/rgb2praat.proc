@@ -4,11 +4,11 @@
 # green, blue).
 #
 # The colour in the format required by Praat can be accessed with a
-# reference to ".color$", which can be used in any(?) of the commands
+# reference to ".colour$", which can be used in any(?) of the commands
 # that use colours. For example, to change the colour of the pen in a
 # Praat draw, you can use:
 #
-#     Colour: rgb2praat.color$
+#     Colour: rgb2praat.colour$
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -44,5 +44,6 @@ procedure rgb2praat: .r, .g, .b
   .r = .r / 255
   .g = .g / 255
   .b = .b / 255
-  .color$ = "{" + string$(.r) + "," + string$(.g) + "," + string$(.b) + "}"
+  .colour$ = "{" + string$(.r) + "," + string$(.g) + "," + string$(.b) + "}"
+  .color$  = .colour$
 endproc

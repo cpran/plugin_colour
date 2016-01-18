@@ -3,11 +3,11 @@
 # as a string (e.g. "#9bcfab").
 #
 # The colour in the format required by Praat can be accessed with a
-# reference to ".color$", which can be used in any(?) of the commands
+# reference to ".colour$", which can be used in any(?) of the commands
 # that use colours. For example, to change the colour of the pen in a
 # Praat draw, one could use:
 #
-#     Colour: hex2praat.color$
+#     Colour: hex2praat.colour$
 #
 # This script is part of the colour CPrAN plugin for Praat.
 # The latest version is available through CPrAN or at
@@ -37,5 +37,6 @@ procedure hex2praat: .hex$
   .r = rgb2praat.r
   .g = rgb2praat.g
   .b = rgb2praat.b
-  .color$ = rgb2praat.color$
+  .colour$ = rgb2praat.colour$
+  .color$  = .colour$
 endproc

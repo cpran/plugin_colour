@@ -19,15 +19,15 @@ for n from 0 to max
 
   result = 1
   for i to n
-    color$ = rainbow.colors$[i]
+    colour$ = rainbow.colours$[i]
 
-    @praat2hsv: color$
+    @praat2hsv: colour$
 
-    if    color$ == "" or
+    if    colour$ == "" or
       ... praat2hsv.s - saturation > threshold or
       ... praat2hsv.v - value      > threshold
 
-      appendInfoLine: "# Color " + string$(i) + ": "
+      appendInfoLine: "# Colour " + string$(i) + ": "
       appendInfoLine: "#   H: " + string$(praat2hsv.h)
       appendInfoLine: "#   S: " + string$(praat2hsv.s)
       appendInfoLine: "#   V: " + string$(praat2hsv.v)

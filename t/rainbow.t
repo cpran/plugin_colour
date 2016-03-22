@@ -18,6 +18,7 @@ for n from 0 to max
   @rainbow: n, saturation, value
 
   result = 1
+  same   = 1
   for i to n
     colour$ = rainbow.colours$[i]
 
@@ -34,10 +35,23 @@ for n from 0 to max
 
       result = 0
     endif
-  endfor
 
+    runScript: "../scripts/rainbow.praat", n, i, saturation, value
+    info$ = Picture info
+    r$ = extractWord$(info$, "Red:")
+    g$ = extractWord$(info$, "Green:")
+    b$ = extractWord$(info$, "Blue:")
+
+    if same
+      same = colour$ == "{" + r$ + "," + g$ + "," + b$ + "}"
+    endif
+
+  endfor
   @todo: 1, "HSV -> RGB -> HSV conversion is prone to errors"
   @ok: result, "Rainbow with " + string$(n) + " colours"
+
+  @ok: same,
+    ... "Script and procedure create the same colour"
 
 endfor
 

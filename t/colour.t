@@ -178,4 +178,6 @@ endfor
 
 removeObject: colours
 
+@ok_selection()
+
 @done_testing()

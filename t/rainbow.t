@@ -55,4 +55,6 @@ for n from 0 to max
 
 endfor
 
+@ok_selection()
+
 @done_testing()

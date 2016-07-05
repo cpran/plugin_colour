@@ -1,4 +1,4 @@
-include ../../plugin_testsimple/procedures/test_simple.proc
+include ../../plugin_tap/procedures/more.proc
 
 include ../../plugin_utils/procedures/utils.proc
 

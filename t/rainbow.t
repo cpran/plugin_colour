@@ -1,4 +1,4 @@
-include ../../plugin_testsimple/procedures/test_simple.proc
+include ../../plugin_tap/procedures/more.proc
 
 include ../../plugin_colour/procedures/rainbow.proc
 include ../../plugin_colour/procedures/praat2hsv.proc
